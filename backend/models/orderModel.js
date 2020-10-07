@@ -1,10 +1,10 @@
-import { Schema, model } from "mongoose";
+const mongoose = require("mongoose");
 
-const orderSchema = Schema(
+const orderSchema = mongoose.Schema(
   {
     // This will be the user that buys the product.
     user: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "User",
     },
@@ -15,7 +15,7 @@ const orderSchema = Schema(
         image: { type: String, required: true },
         price: { type: Number, required: true },
         product: {
-          type: Schema.Types.ObjectId,
+          type: mongoose.Schema.Types.ObjectId,
           required: true,
           ref: "Product",
         },
@@ -74,6 +74,6 @@ const orderSchema = Schema(
   }
 );
 
-const Order = model("Order", orderSchema);
+const Order = mongoose.model("Order", orderSchema);
 
-export default Order;
+module.exports = Order;
