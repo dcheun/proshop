@@ -2,7 +2,7 @@ const express = require("express");
 const {
   getProducts,
   getProductById,
-} = require("../controllers/productController.js");
+} = require("../controllers/productController");
 
 const router = express.Router();
 
