@@ -5,6 +5,7 @@ import Product from "../components/Product";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
+import ProductCarousel from "../components/ProductCarousel";
 import { listProducts } from "../actions/productActions";
 
 const HomeScreen = ({ match }) => {
@@ -12,6 +13,7 @@ const HomeScreen = ({ match }) => {
   const pageNumber = match.params.pageNumber || 1;
 
   const dispatch = useDispatch();
+
   const productList = useSelector((state) => state.productList);
   const { loading, error, products, page, pages } = productList;
 
@@ -21,6 +23,7 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
+      {!keyword && <ProductCarousel />}
       <h1>Latest Products</h1>
       {loading ? (
         <Loader />
